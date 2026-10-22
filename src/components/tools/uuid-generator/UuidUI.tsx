@@ -13,14 +13,12 @@ export function UuidUI() {
   const [uppercase, setUppercase] = React.useState(false);
   const [hyphens, setHyphens] = React.useState(true);
   const [braces, setBraces] = React.useState(false);
-  const [uuids, setUuids] = React.useState<string[]>([]);
   const [seed, setSeed] = React.useState(0);
 
-  React.useEffect(() => {
+  const uuids = React.useMemo(() => {
+    void seed;
     const res = generateUuids({ version, count, uppercase, hyphens, braces });
-    if (res.success && res.data) {
-      setUuids(res.data);
-    }
+    return res.success && res.data ? res.data : [];
   }, [version, count, uppercase, hyphens, braces, seed]);
 
   const handleRegenerate = () => {

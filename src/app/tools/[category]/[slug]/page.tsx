@@ -28,10 +28,10 @@ import { HeicConverterUI } from '@/components/tools/heic-to-jpg-converter/HeicCo
 import { TikTokHookUI } from '@/components/tools/tiktok-hook-generator/TikTokHookUI';
 
 interface ToolPageProps {
-  params: {
+  params: Promise<{
     category: string;
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -42,7 +42,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ToolPageProps): Promise<Metadata> {
-  const tool = getToolBySlug(params.slug);
+  const { slug } = await params;
+  const tool = getToolBySlug(slug);
   if (!tool) return {};
 
   const title = `${tool.name} - Free Online Tool`;
@@ -100,10 +101,11 @@ function renderToolComponent(slug: string) {
   }
 }
 
-export default function ToolPage({ params }: ToolPageProps) {
-  const tool = getToolBySlug(params.slug);
+export default async function ToolPage({ params }: ToolPageProps) {
+  const { category, slug } = await params;
+  const tool = getToolBySlug(slug);
 
-  if (!tool || tool.category !== params.category) {
+  if (!tool || tool.category !== category) {
     notFound();
   }
 

@@ -9,9 +9,9 @@ import { LeaderboardAd } from '@/components/ads/LeaderboardAd';
 import { ArrowRight, Wrench, ShieldCheck } from 'lucide-react';
 
 interface CategoryPageProps {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -21,7 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const cat = SITE_CONFIG.categories.find((c) => c.id === params.category);
+  const { category } = await params;
+  const cat = SITE_CONFIG.categories.find((c) => c.id === category);
   if (!cat) return {};
 
   const title = `${cat.name} - Free Browser Utilities | ${SITE_CONFIG.name}`;
@@ -41,14 +42,15 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   };
 }
 
-export default function CategoryPage({ params }: CategoryPageProps) {
-  const cat = SITE_CONFIG.categories.find((c) => c.id === params.category);
+export default async function CategoryPage({ params }: CategoryPageProps) {
+  const { category } = await params;
+  const cat = SITE_CONFIG.categories.find((c) => c.id === category);
 
   if (!cat) {
     notFound();
   }
 
-  const tools = getToolsByCategory(params.category);
+  const tools = getToolsByCategory(category);
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">

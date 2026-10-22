@@ -75,3 +75,16 @@
 - **Status**: Approved & Implemented
 - **Context**: Need persistent storage for shareable calculation links, user feedback, and tool analytics while maintaining zero server costs and infinite scaling.
 - **Decision**: Integrate `@neondatabase/serverless` with connection pooling over WebSockets/HTTP. Keep user transformation data strictly client-side, while storing non-sensitive share links and feedback in Neon DB.
+
+---
+
+### ADR-012: Mandatory Next.js 16+ & React 19 Architecture Standard
+- **Status**: Approved & Implemented (Permanent Requirement)
+- **Context**: Framework standardization mandates Next.js 16 or newer stable releases (`>=16.0.0`). Next.js 14 and 15 are deprecated and prohibited from being target frameworks.
+- **Decisions**:
+  1. **Framework Release**: Upgraded to latest stable Next.js `16.4.2` with Turbopack production compilation.
+  2. **React Ecosystem**: Upgraded to latest stable React `19.3.1`, React DOM `19.3.1`, and `@types/react` / `@types/react-dom` `19.3.0`.
+  3. **Runtime Engine**: Enforce Node.js `>=22.0.0 LTS` runtime in `package.json` engines.
+  4. **Async Request APIs**: Refactored dynamic route pages (`/tools/[category]/[slug]` and `/categories/[category]`) to resolve `params` as asynchronous `Promise` objects (`await params`).
+  5. **ESLint 9 Flat Configuration**: Replaced deprecated `next lint` with direct ESLint CLI command (`eslint .`) using native `eslint.config.mjs` flat configuration with `eslint-config-next@16.4.2`.
+  6. **Zero-Warning Performance Optimization**: Converted stateful effect synchronization in niche tools (`TikTokHookUI`, `UuidUI`) to pure `React.useMemo` memoization for React 19 compliance.

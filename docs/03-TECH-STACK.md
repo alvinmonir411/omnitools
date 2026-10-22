@@ -4,10 +4,10 @@
 
 | Technology | Version / Specification | Role & Architecture Rationale |
 | :--- | :--- | :--- |
-| **Next.js** | `^14.2.x` (App Router, 15/16 ready) | Static Site Generation (SSG) for tool pages, dynamic API route handlers for database transactions, zero-runtime overhead |
-| **React & React DOM** | `^18.3.x` | Modern declarative component architecture, hooks, and concurrent hydration |
-| **TypeScript** | `^5.6.x` | Strict type safety (`strict: true`), eliminating runtime null/undefined errors |
-| **Node.js** | `>= 20.x LTS` | Serverless edge execution and local development environment |
+| **Next.js** | `^16.4.2` (App Router, mandatory 16+) | Static Site Generation (SSG) for tool pages, dynamic API route handlers for database transactions, asynchronous request APIs (`params`), zero-runtime overhead |
+| **React & React DOM** | `^19.3.1` | Modern declarative component architecture, hooks, concurrent hydration, React 19 optimizations |
+| **TypeScript** | `^5.6.3` | Strict type safety (`strict: true`), eliminating runtime null/undefined errors |
+| **Node.js** | `>= 22.0.0 LTS` | Serverless edge execution and local runtime environment (Node.js 22+ mandatory LTS requirement) |
 
 ---
 
@@ -47,6 +47,6 @@ To support high-scale global usage, user saved calculations, shareable report UR
 | Tool | Purpose |
 | :--- | :--- |
 | **Vitest (`^2.1.x`)** | Lightning-fast native ESM test runner for computational engines and utilities. |
-| **React Testing Library (`^16.x`)** | Component interaction, keyboard navigation, and accessibility audits. |
+| **React Testing Library (`^16.3.x`)** | Component interaction, keyboard navigation, and accessibility audits compatible with React 19. |
 | **Playwright** | Cross-browser End-to-End automation testing. |
-| **ESLint (`^8.57.x`)** | Static code analysis with `eslint-config-next`. |
+| **ESLint (`^9.x`)** | Static code analysis via standard ESLint CLI (`eslint .`) with `eslint-config-next` (`16.4.x`). |

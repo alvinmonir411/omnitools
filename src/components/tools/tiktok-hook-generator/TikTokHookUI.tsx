@@ -21,13 +21,10 @@ const NICHES: { id: CreatorNiche; label: string; icon: string }[] = [
 export function TikTokHookUI() {
   const [niche, setNiche] = React.useState<CreatorNiche>('tech');
   const [topic, setTopic] = React.useState('');
-  const [hooks, setHooks] = React.useState<ViralHookItem[]>([]);
 
-  React.useEffect(() => {
+  const hooks = React.useMemo(() => {
     const res = generateViralHooks(niche, topic);
-    if (res.success && res.data) {
-      setHooks(res.data);
-    }
+    return res.success && res.data ? res.data : [];
   }, [niche, topic]);
 
   const allHooksText = hooks

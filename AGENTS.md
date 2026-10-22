@@ -11,6 +11,7 @@ Welcome to the **OmniTools** platform repository. This document serves as the si
 3. **Legitimate Monetization & Policy Compliance**: Ad placements must be clean, clearly labeled, non-intrusive, and strictly compliant with Adsterra and Google Webmaster policies. Never simulate clicks, never generate deceptive UI elements, and never create pop-up traps on functional buttons.
 4. **SEO & Content Excellence**: Tools must be surrounded by genuine, high-value technical documentation, FAQs, and structured data (Schema.org). Do not spam thin or auto-generated low-quality pages.
 5. **Architectural & Design Consistency**: Stick strictly to the approved design tokens, reusable UI primitives, and architecture standards defined in `docs/`.
+6. **Mandatory Next.js 16+ & React 19 Standards**: Next.js 16 or newer stable versions (`>=16.0.0`) are permanently mandatory for this platform. Next.js 14 and 15 must never be used as target frameworks. All dynamic route parameters (`params` and `searchParams`) must be handled as asynchronous Promises. Node.js 22+ LTS is required. ESLint must be executed directly via ESLint CLI (`eslint .`) using modern flat config (`eslint.config.mjs`).
 
 ---
 
@@ -46,7 +47,7 @@ Welcome to the **OmniTools** platform repository. This document serves as the si
 ├── tests/
 │   ├── e2e/                  # Playwright end-to-end tests for tools & navigation
 │   └── unit/                 # Vitest test suites for pure tool engines and hooks
-├── .eslintrc.json            # Strict ESLint configuration
+├── eslint.config.mjs         # Modern ESLint 9 flat configuration
 ├── .prettierrc               # Code formatting rules
 ├── next.config.mjs           # Next.js configuration (CSP, compression, image formats)
 ├── package.json              # Exact pinned dependencies
