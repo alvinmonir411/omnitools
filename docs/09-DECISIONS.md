@@ -4,68 +4,74 @@
 
 ### ADR-001: Next.js App Router with Static Site Generation (SSG)
 - **Status**: Approved & Implemented
-- **Decision**: Use Next.js 14+ App Router with static generation. Every tool and category page is compiled to static HTML at build time (`21/21` static pages pre-rendered).
-- **Outcome**: Verified instant TTFB, 87.3 kB shared baseline bundle, zero server compute overhead.
+- **Decision**: Use Next.js 14+ App Router with static generation (`output: 'export'` or statically pre-rendered routes). Every tool and category page is compiled to static HTML at build time.
 
 ---
 
-### ADR-002: 100% Client-Side Tool Computation
+### ADR-002: 100% Client-Side Tool Computation for Sensitive Payloads
 - **Status**: Approved & Implemented
 - **Decision**: All tool engines execute exclusively inside the user's browser runtime using JavaScript, the Web Crypto API, and HTML5 Canvas.
-- **Outcome**: Verified zero network requests on any tool transformation across all 8 MVP tools.
 
 ---
 
 ### ADR-003: Tailwind CSS with CSS Variable Design Tokens
 - **Status**: Approved & Implemented
-- **Decision**: Strict design tokens configured in `:root` and `tailwind.config.ts`:
-  - Primary: `#2563EB`
-  - Text: `#0F172A`
-  - Background: `#F8FAFC`
-  - Surface: `#FFFFFF`
-  - Success: `#16A34A`
-- **Outcome**: Cohesive, responsive, WCAG 2.1 AA accessible UI across all components and viewports.
+- **Decision**: Strict design tokens configured in `:root` and `tailwind.config.ts` (#2563EB primary, #0F172A text, #F8FAFC background, #FFFFFF surface, #16A34A success).
 
 ---
 
-### ADR-004: Adsterra Ad Unit Isolation & Zero CLS Guarantee
+### ADR-004: Adsterra Zero-CLS Isolation
 - **Status**: Approved & Implemented
-- **Decision**: Every ad unit wrapped in fixed-aspect containers (`min-h-[114px]`, `min-h-[274px]`) with dedicated `ADVERTISEMENT` labeling.
-- **Outcome**: Eliminates layout shift (CLS < 0.05) and maintains clear separation from tool interactive buttons.
+- **Decision**: Every ad unit wrapped in fixed-aspect containers with dedicated `ADVERTISEMENT` labeling.
 
 ---
 
-### ADR-005: Vitest & Unit Test Automation
+### ADR-005: Vitest & Automated Quality Gates
 - **Status**: Approved & Implemented
-- **Decision**: Use Vitest with `@testing-library/react` and `jsdom`.
-- **Outcome**: 35 unit and component tests passing across 5 test suites in ~1.5 seconds.
+- **Decision**: Use Vitest with `@testing-library/react` and `jsdom` for sub-second unit and component testing.
 
 ---
 
 ### ADR-006: Hierarchical Canonical URL Architecture
 - **Status**: Approved by User & Implemented
-- **Decision**: Use `/tools/[category]/[slug]` (e.g., `/tools/developer/json-formatter`) and `/categories/[category]` (e.g., `/categories/developer`).
-- **Outcome**: Optimal category silo SEO structure, automated dynamic XML sitemap, and rich `BreadcrumbList` Schema.org JSON-LD.
+- **Decision**: Use `/tools/[category]/[slug]` and `/categories/[category]`.
 
 ---
 
 ### ADR-007: Universal Bit-Math & Regex Compatibility
 - **Status**: Approved & Implemented
-- **Decision**: Use safe 48-bit math for UUID v7 timestamps and universal regex patterns without requiring non-standard compilation flags.
-- **Outcome**: Full cross-platform runtime portability and zero TypeScript compiler errors.
+- **Decision**: Use safe 48-bit math for UUID v7 timestamps and universal regex patterns without non-standard compilation flags.
 
 ---
 
-## 2. Milestone Implementation Status Record
+### ADR-008: Deployment to GitHub & Vercel
+- **Status**: Approved & Live
+- **Decision**: GitHub repo at `alvinmonir411/omnitools`, connected and auto-deploying to Vercel production at `https://omnitools-lovat.vercel.app`.
 
-| Milestone | Scope / Deliverable | Status | Verification Summary |
-| :--- | :--- | :--- | :--- |
-| **Milestone 0** | Documentation & Architecture Specifications | **COMPLETE** | User approved all 10 architectural documents |
-| **Milestone 1** | Project Scaffolding, TypeScript, Tailwind & Tooling | **COMPLETE** | `package.json`, `tsconfig.json`, `tailwind.config.ts`, Vitest setup |
-| **Milestone 2** | Design System & Reusable UI Primitives | **COMPLETE** | Button, Input, Textarea, Card, Badge, Alert, Tabs, CopyButton, Dropzone, Modal, Kbd |
-| **Milestone 3** | Global Shell, Navigation, Layouts & Ad Placeholders | **COMPLETE** | Header, Footer, QuickSearchModal (`Ctrl+K`), LeaderboardAd, SidebarAd, Breadcrumbs |
-| **Milestone 4** | MVP Batch 1: Developer Tools (JSON, Base64, UUID, Hash) | **COMPLETE** | 4 pure engines + 4 interactive UI components + 11 unit tests |
-| **Milestone 5** | MVP Batch 2: Text, Media & Productivity Utilities | **COMPLETE** | Word Counter, Case Converter, QR Code Generator, Unix Timestamp Converter + 11 unit tests |
-| **Milestone 6** | SEO Automation, Schema Markup & Dynamic Sitemap | **COMPLETE** | `generateMetadata`, JSON-LD schemas (`WebApplication`, `FAQPage`, `BreadcrumbList`), `sitemap.ts`, `robots.ts` |
-| **Milestone 7** | Adsterra Monetization, Cookie Consent & Legal Pages | **COMPLETE** | `AdSlot`, `CookieBanner`, `/privacy-policy`, `/terms-of-service`, `/about`, CSP headers |
-| **Milestone 8** | Quality Gates & Production Build Verification | **COMPLETE** | `tsc --noEmit` (0 errors), ESLint (0 warnings), Vitest (35/35 passing), `next build` (21/21 static pages generated), HTTP 200 responses verified |
+---
+
+### ADR-009: Portfolio Expansion to High-Yield US/UK Niche Tools
+- **Status**: Approved & Implemented
+- **Context**: Foundational developer tools (JSON, Base64, Hashes) have Keyword Difficulty 90+ where 15-year-old authority sites sit, and developers heavily use adblockers (>90%).
+- **Decision**: Retain the 8 developer tools for platform authority and backlink generation, but pivot real traffic and monetization toward low-KD, high-search-intent US/UK niche tools:
+  1. **Etsy Seller Fee & Profit Calculator**: Non-tech US/UK demographic (<5% adblockers), massive Pinterest/Reddit viral potential.
+  2. **US 1099 Self-Employed Tax Calculator**: Sole proprietors/freelancers, high financial intent during quarterly deadlines.
+  3. **HEIC to JPG/PNG Converter**: iPhone photo uploads to PC/forms, massive mobile organic search volume with 0% adblockers.
+  4. **TikTok & Reels Viral Hook Generator**: Content creators/marketers, viral short-form video hooks.
+
+---
+
+### ADR-010: High-CPM Adsterra Monetization Engine
+- **Status**: Approved & Implemented
+- **Context**: Standard 728x90 and 300x250 banners yield low CPM ($0.10–$0.50).
+- **Decision**: Integrate Adsterra's highest performing ad formats:
+  1. **Social Bar (In-Page Push)**: Native notification widget with 10x higher CPM ($3.00–$15.00+ for US/UK).
+  2. **Native Ad Banner**: Recommendation-card styled units beneath tool output cards.
+  3. **Smart Direct Link Gateway with 24-Hour Cooldown**: Triggered on secondary export/download actions with rate-limiting stored in `localStorage`.
+
+---
+
+### ADR-011: Neon Serverless PostgreSQL Database Architecture
+- **Status**: Approved & Implemented
+- **Context**: Need persistent storage for shareable calculation links, user feedback, and tool analytics while maintaining zero server costs and infinite scaling.
+- **Decision**: Integrate `@neondatabase/serverless` with connection pooling over WebSockets/HTTP. Keep user transformation data strictly client-side, while storing non-sensitive share links and feedback in Neon DB.

@@ -1,54 +1,52 @@
-# 03 - Technology Stack & Dependency Strategy
+# 03 - Technology Stack & Architecture Specifications
 
-## 1. Core Framework & Runtime
+## 1. Core Framework & Modern Runtime
 
-| Technology | Version / Requirement | Role & Justification |
+| Technology | Version / Specification | Role & Architecture Rationale |
 | :--- | :--- | :--- |
-| **Node.js** | `>= 20.x LTS` | Stable execution environment with native `crypto` and `fetch` support |
-| **Next.js** | `^14.2.x` (App Router) | Industry standard for Static Site Generation (SSG), automatic font optimization, built-in metadata API, zero runtime server overhead |
-| **React & React DOM** | `^18.3.x` | Modern component model, concurrent rendering, and battle-tested ecosystem |
-| **TypeScript** | `^5.4.x` | Strict type checking (`strict: true`), eliminating runtime null/undefined crashes |
+| **Next.js** | `^14.2.x` (App Router, 15/16 ready) | Static Site Generation (SSG) for tool pages, dynamic API route handlers for database transactions, zero-runtime overhead |
+| **React & React DOM** | `^18.3.x` | Modern declarative component architecture, hooks, and concurrent hydration |
+| **TypeScript** | `^5.6.x` | Strict type safety (`strict: true`), eliminating runtime null/undefined errors |
+| **Node.js** | `>= 20.x LTS` | Serverless edge execution and local development environment |
 
 ---
 
-## 2. Styling & Design System
+## 2. Database & Cloud Persistence: Neon Serverless PostgreSQL
+
+To support high-scale global usage, user saved calculations, shareable report URLs, user feedback, and platform telemetry:
+
+| Technology | Role & Integration |
+| :--- | :--- |
+| **Neon Serverless Postgres (`@neondatabase/serverless`)** | Serverless PostgreSQL with auto-scaling compute, zero connection limits, connection pooling over WebSockets/HTTPS, and sub-10ms response times. |
+| **Privacy Separation Model** | Actual file bytes and sensitive transformation data remain 100% in-browser. The database strictly stores non-sensitive calculation presets (e.g., Etsy price breakdown snapshots), user feedback ratings, and aggregated tool hit counters. |
+
+---
+
+## 3. Styling & Design System
 
 | Library | Role & Justification |
 | :--- | :--- |
-| **Tailwind CSS (`^3.4.x`)** | Utility-first CSS engine with zero runtime overhead, purged production stylesheets, and first-class design token configuration via CSS variables |
-| **PostCSS & Autoprefixer** | Cross-browser CSS vendor prefixing |
-| **`clsx` & `tailwind-merge`** | Conditional class merging without CSS specificity collisions (`cn` utility) |
-| **Lucide React (`^0.400.x`)** | Lightweight, tree-shakeable SVG icon library with consistent 24px stroke styling |
+| **Tailwind CSS (`^3.4.x`)** | Zero runtime CSS with strict CSS variables matching approved brand tokens (#2563EB, #0F172A, #F8FAFC, #FFFFFF, #16A34A). |
+| **`clsx` & `tailwind-merge`** | Dynamic class merging without CSS specificity collisions. |
+| **Lucide React (`^0.453.x`)** | Tree-shakeable SVG icon set. |
 
 ---
 
-## 3. Data Validation & Client Utilities
+## 4. Specialized Client Libraries
 
-| Library | Role & Justification |
+| Library | Role |
 | :--- | :--- |
-| **Zod (`^3.23.x`)** | Declarative schema validation for user inputs, tool configuration files, and search queries |
-| **`qrcode` (`^1.5.x`)** | Browser-compatible, lightweight canvas/SVG QR code generator with zero native binary bindings |
-| **Web Crypto API** (Browser Native) | Zero-dependency cryptographic hashing (SHA-256, SHA-512) and UUID generation via standard W3C APIs |
+| **`qrcode` (`^1.5.4`)** | In-browser canvas and SVG QR code matrix generation. |
+| **`heic2any`** | Client-side conversion of Apple iPhone HEIC/HEIF images to standard JPEG/PNG format. |
+| **Web Crypto API** | Native hardware-accelerated SHA-1, SHA-256, SHA-512, and CSPRNG UUID generation. |
 
 ---
 
-## 4. Quality Assurance, Testing & Tooling
+## 5. Testing & Quality Assurance
 
-| Tool | Version / Purpose |
+| Tool | Purpose |
 | :--- | :--- |
-| **Vitest (`^1.6.x`)** | Lightning-fast Vite-powered unit test runner with native ESM and TypeScript support |
-| **React Testing Library (`^15.x`)** | User-centric component testing simulating real browser interactions |
-| **Playwright (`^1.45.x`)** | Cross-browser (Chromium, Firefox, WebKit) End-to-End automation testing for tool workflows and mobile responsiveness |
-| **ESLint (`^8.57.x`)** | Static code analysis with `eslint-config-next` for Core Web Vitals checks |
-| **Prettier (`^3.3.x`)** | Automated opinionated code formatting with `prettier-plugin-tailwindcss` |
-
----
-
-## 5. Dependency Compatibility & Lockdown Protocol
-
-To guarantee stability, reproducible builds, and security:
-1. **Exact Pinning**: All dependencies in `package.json` are installed with locked versions, strictly tracking `package-lock.json`.
-2. **Zero Backend Bloat**: No ORM (Prisma/Drizzle), no database drivers (PostgreSQL/MongoDB), no authentication libraries (NextAuth/Clerk), and no heavy server frameworks.
-3. **Bundle Size Budgets**:
-   - Total First Load JS target: `< 85 KB` gzipped for tool pages.
-   - Heavy client libraries (e.g., CodeMirror or heavy formatters) must be dynamically loaded via `next/dynamic` with `ssr: false`.
+| **Vitest (`^2.1.x`)** | Lightning-fast native ESM test runner for computational engines and utilities. |
+| **React Testing Library (`^16.x`)** | Component interaction, keyboard navigation, and accessibility audits. |
+| **Playwright** | Cross-browser End-to-End automation testing. |
+| **ESLint (`^8.57.x`)** | Static code analysis with `eslint-config-next`. |

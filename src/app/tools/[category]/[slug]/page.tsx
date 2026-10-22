@@ -6,6 +6,7 @@ import { SITE_CONFIG } from '@/config/site';
 import { Breadcrumbs } from '@/components/common/Breadcrumbs';
 import { LeaderboardAd, ContentBottomAd } from '@/components/ads/LeaderboardAd';
 import { SidebarAd } from '@/components/ads/SidebarAd';
+import { NativeAdBanner } from '@/components/ads/NativeAdBanner';
 import { ToolHeader } from '@/components/tools/ToolHeader';
 import { ToolGuideSection, ToolFeaturesSection } from '@/components/tools/ToolGuideSection';
 import { ToolFaqSection } from '@/components/tools/ToolFaqSection';
@@ -21,6 +22,10 @@ import { WordCounterUI } from '@/components/tools/word-counter/WordCounterUI';
 import { CaseConverterUI } from '@/components/tools/case-converter/CaseConverterUI';
 import { QrCodeUI } from '@/components/tools/qr-code-generator/QrCodeUI';
 import { TimestampUI } from '@/components/tools/unix-timestamp-converter/TimestampUI';
+import { EtsyFeeUI } from '@/components/tools/etsy-fee-calculator/EtsyFeeUI';
+import { TaxCalculatorUI } from '@/components/tools/us-1099-tax-calculator/TaxCalculatorUI';
+import { HeicConverterUI } from '@/components/tools/heic-to-jpg-converter/HeicConverterUI';
+import { TikTokHookUI } from '@/components/tools/tiktok-hook-generator/TikTokHookUI';
 
 interface ToolPageProps {
   params: {
@@ -66,6 +71,14 @@ export async function generateMetadata({ params }: ToolPageProps): Promise<Metad
 
 function renderToolComponent(slug: string) {
   switch (slug) {
+    case 'etsy-fee-calculator':
+      return <EtsyFeeUI />;
+    case 'us-1099-tax-calculator':
+      return <TaxCalculatorUI />;
+    case 'heic-to-jpg-converter':
+      return <HeicConverterUI />;
+    case 'tiktok-hook-generator':
+      return <TikTokHookUI />;
     case 'json-formatter':
       return <JsonFormatterUI />;
     case 'base64-encode-decode':
@@ -129,7 +142,7 @@ export default function ToolPage({ params }: ToolPageProps) {
           ]}
         />
 
-        {/* Top Leaderboard Ad Slot (728x90 desktop / 320x50 mobile, 0 CLS) */}
+        {/* Top Leaderboard Ad Slot */}
         <LeaderboardAd />
 
         {/* Main Workspace Layout with Sidebar Rail on Desktop */}
@@ -142,6 +155,9 @@ export default function ToolPage({ params }: ToolPageProps) {
             <div className="min-h-[300px]">
               {renderToolComponent(tool.slug)}
             </div>
+
+            {/* Native High-Converting Ad Banner beneath tool */}
+            <NativeAdBanner />
 
             {/* In-Content Ad Slot between tool and documentation */}
             <ContentBottomAd />

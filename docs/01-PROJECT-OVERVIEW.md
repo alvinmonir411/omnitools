@@ -2,135 +2,63 @@
 
 ## 1. Executive Summary
 
-**OmniTools** is a high-performance, privacy-focused online suite of browser-based utilities for developers, writers, designers, students, and digital creators. The platform solves the frustration of existing utility websites that are bloated with heavy popups, slow loading times, invasive trackers, server-side data retention risks, and broken layouts.
+**OmniTools** is a high-performance, privacy-focused online suite of browser-based utilities engineered for software engineers, digital creators, e-commerce sellers, and freelancers. 
 
-OmniTools is monetized through compliant, high-integrity advertising via **Adsterra**, deliberately engineered to coexist seamlessly with clean, accessible tool workflows without degrading user experience or Core Web Vitals.
+The platform strategically combines two complementary tool layers:
+1. **Foundational Platform Utilities**: Industry-standard developer and text utilities (JSON, Base64, UUID, Hashes, QR Codes, Timestamps) that build authoritative domain depth and organic backlink equity.
+2. **High-Yield, Low-KD US/UK Niche Growth Drivers**: Ultra-targeted calculators and converters (Etsy Fee Calculator, US 1099 Self-Employment Tax Calculator, HEIC to JPG Converter, TikTok Viral Hook Generator) that target non-technical, high-intent audiences with near-zero adblocker usage, massive social shareability (Pinterest, Reddit, TikTok), and top-tier US/UK CPMs.
+
+OmniTools is monetized through verified, high-converting **Adsterra** advertising formats—including **Social Bar (In-Page Push)**, **Native Ad Banners**, and **Direct Link Action Gateways with 24-Hour Cooldown**—engineered to maximize earnings while preserving a clean, distraction-free user experience.
 
 ---
 
 ## 2. Target Audience & Personas
 
-| Persona | Description | Primary Needs | Typical Tools Used |
+| Persona | Description | Demographics & AdBlock Usage | Primary Niche Tools |
 | :--- | :--- | :--- | :--- |
-| **Alex - Software Engineer** | Full-stack web developer debugging APIs and data feeds | Fast, reliable client-side formatting, no server logging of sensitive keys or payloads | JSON Formatter, Base64 Encoder/Decoder, Hash Generator, UUID Generator |
-| **Samantha - Content Creator / Marketer** | Copywriter, SEO specialist, and social media manager | Accurate text statistics, readability scoring, quick case conversion, character limits | Word & Character Counter, Case Converter, Diff Checker, Lorem Ipsum Generator |
-| **Liam - Designer / Frontend Dev** | UI/UX designer and web creator needing fast asset prep | Instant graphic/media adjustments without opening heavy software | QR Code Generator, Image Compressor, Color Palette & Contrast Checker, SVG to PNG |
-| **Elena - Student / Professional** | General computer user needing everyday digital math | Straightforward, zero-friction calculations and time conversions | Percentage Calculator, Unix Timestamp Converter, Unit Converter |
+| **Sarah - Etsy & Shopify Seller** | Handcrafted and digital goods seller calculating margins | US / UK / Canada (Female 24-45). **< 5% AdBlock usage**. Active on Pinterest & Facebook Groups. | **Etsy Fee & Profit Calculator**, QR Code Generator, Image Converter |
+| **Marcus - US Freelancer / 1099 Contractor** | Gig worker, consultant, Upwork freelancer managing taxes | US nationwide (21-50). **< 8% AdBlock usage**. High financial intent during quarterly tax deadlines. | **US 1099 Self-Employed Tax Calculator**, Word Counter, Timestamp Converter |
+| **Chloe - TikTok & Reels Creator** | Content creator, affiliate marketer, video editor | US / Global (18-35). Mobile-first. **< 4% AdBlock usage**. Active on TikTok, IG, and Reddit. | **TikTok & Reels Viral Hook Generator**, Case Converter, Word Counter |
+| **David - iPhone & Mobile Power User** | Regular user trying to upload iPhone photos to Windows PC/web forms | General consumer (iOS users). Mobile & Desktop. **< 6% AdBlock usage**. | **HEIC to JPG/PNG Converter** |
+| **Alex - Full-Stack Developer** | Software engineer debugging APIs, tokens, and payloads | Global tech professionals. Highly technical. Builds platform authority & backlinks. | **JSON Formatter**, Base64, UUID v4/v7, Hash Generator |
 
 ---
 
 ## 3. Core Value Propositions
 
-1. **100% Client-Side Privacy**:
-   - Zero telemetry of user-provided content.
-   - Text, code snippets, tokens, and uploaded images are processed entirely within the user's browser runtime (V8 / JavaScript Engine / Canvas / WebAssembly).
-   - Ideal for developers and professionals dealing with proprietary, sensitive, or personal data.
-
-2. **Sub-Second Performance & Zero CLS**:
-   - Built on Next.js Static Site Generation (SSG).
-   - Minimal client runtime overhead, tree-shaken dependencies, and lazy-loaded tool modules.
-   - Fixed-dimension ad slots prevent jarring layout shifts (CLS < 0.05).
-
-3. **Distraction-Free, Mobile-First UI**:
-   - Modern, clean, uncluttered design adhering to strict design tokens.
-   - Full keyboard accessibility, clear visual feedback, and one-click copy/download actions.
-
-4. **Rich Educational & Practical SEO Content**:
-   - Every tool page includes high-utility documentation: step-by-step instructions, use cases, technical specifications, and interactive FAQs.
-   - Fully optimized for search intent without repetitive keyword stuffing.
+1. **Strategic Traffic & Monetization Engine**:
+   - Focuses traffic acquisition on high-intent US/UK transactional searches with low keyword difficulty.
+   - Non-technical audience segments monetize at 10x higher RPM than developer-only traffic.
+2. **100% In-Browser Privacy Guarantee**:
+   - Client-side computation for all sensitive user files, photos, code, and financial inputs.
+   - Zero remote logging or telemetry on user payloads.
+3. **High-CPM Adsterra Monetization**:
+   - **Social Bar (In-Page Push)**: Native-styled interactive notifications yielding $3.00 - $15.00+ US CPMs.
+   - **Native Content Banners**: High-CTR recommendation cards blended seamlessly into content.
+   - **Smart Direct Link Gateway**: Rate-limited 24-hour cooldown on exports/downloads for legitimate, non-intrusive monetization.
+4. **Cloud Persistence via Neon PostgreSQL**:
+   - Serverless PostgreSQL integration for shareable calculation links, user feedback, and favorite tool presets.
 
 ---
 
-## 4. MVP Scope Definition
+## 4. Current Tool Portfolio (12 Tools)
 
-The Minimum Viable Product (MVP) focuses on eight (8) foundational, high-demand client-side tools spanning developer, content, and utility domains:
+### Foundational Developer & Utility Layer (8 Tools)
+1. **JSON Formatter & Validator** (`/tools/developer/json-formatter`)
+2. **Base64 Encoder & Decoder** (`/tools/developer/base64-encode-decode`)
+3. **UUID & GUID Generator (v4 & v7)** (`/tools/developer/uuid-generator`)
+4. **Cryptographic Hash Generator (MD5, SHA)** (`/tools/developer/hash-generator`)
+5. **Word, Character & Reading Time Counter** (`/tools/text/word-counter`)
+6. **Text Case Converter (8+ cases)** (`/tools/text/case-converter`)
+7. **Custom QR Code Generator** (`/tools/media/qr-code-generator`)
+8. **Unix Timestamp & Epoch Converter** (`/tools/productivity/unix-timestamp-converter`)
 
-### MVP Tool Portfolio (Phase 1)
-
-| Category | Tool Name | Key Capabilities | Client Engine |
-| :--- | :--- | :--- | :--- |
-| **Developer** | **JSON Formatter & Validator** | Syntax validation, tree/raw view, 2/4-space indent, minification, error highlighting | Native `JSON.parse` with custom parser line-error pinpointing |
-| **Developer** | **Base64 Encoder / Decoder** | Text and file Base64 conversion, URL-safe Base64 mode, instant preview | Browser `TextEncoder`/`TextDecoder`, `FileReader` API |
-| **Developer** | **UUID / GUID Generator** | UUID v4 & v7 generation, single & bulk batch creation, hyphens/uppercase toggles | `crypto.randomUUID()` with fallback CSPRNG |
-| **Developer** | **Cryptographic Hash Generator**| MD5, SHA-1, SHA-256, SHA-512 calculation for text and small files | Web Crypto API (`crypto.subtle.digest`) |
-| **Text & Copy** | **Word & Character Counter** | Real-time counts (words, chars, sentences, paragraphs, reading time, speaking time) | Regex tokenization, internationalization-safe unicode break iterators |
-| **Text & Copy** | **Text Case Converter** | UPPERCASE, lowercase, Title Case, camelCase, snake_case, kebab-case, PascalCase | Pure algorithmic string transforms |
-| **Media / Graphics** | **QR Code Generator** | Custom text/URL to QR, adjustable error correction (L/M/Q/H), size, colors, SVG/PNG download | Lightweight client-side QR renderer |
-| **Productivity** | **Unix Timestamp Converter** | Human date to epoch (seconds/milliseconds) and epoch to UTC/Local formatted date | JavaScript `Intl.DateTimeFormat` and `Date` engine |
-
----
-
-## 5. Post-MVP Roadmap (Future Expansion)
-
-### Phase 2: High-Utility Additions
-- **Diff / Text Comparison Tool**: Side-by-side and inline visual text differences.
-- **Regex Tester & Visualizer**: Safe browser-based regex evaluator with flag toggles.
-- **Image Compressor & Resizer**: Client-side Canvas/WebAssembly compression for WebP, JPEG, and PNG.
-- **Markdown to HTML Converter**: Live split-pane markdown previewer with sanitized output.
-- **Color Contrast & Palette Checker**: WCAG 2.1 AA/AAA compliance tester and gradient builder.
-
-### Phase 3: Platform & Ecosystem Enhancements
-- Progressive Web App (PWA) with offline worker caching.
-- Tool history (saved strictly in browser `localStorage`).
-- Customizable user dashboard for favorite tools.
-- Multi-language localized content (i18n).
-
----
-
-## 6. Site Structure & Navigation Architecture
-
-```text
-/ (Homepage)
-├── /tools
-│   ├── /developer
-│   │   ├── /json-formatter
-│   │   ├── /base64-encode-decode
-│   │   ├── /uuid-generator
-│   │   └── /hash-generator
-│   ├── /text
-│   │   ├── /word-counter
-│   │   └── /case-converter
-│   ├── /media
-│   │   └── /qr-code-generator
-│   └── /productivity
-│       └── /unix-timestamp-converter
-├── /categories
-│   ├── /developer
-│   ├── /text
-│   ├── /media
-│   └── /productivity
-├── /about
-├── /privacy-policy
-├── /terms-of-service
-└── /contact
-```
-
----
-
-## 7. Business & Monetization Architecture
-
-The platform is monetized through **Adsterra** display network placements using clean, non-deceptive formats:
-- **Leaderboard Slot (728x90 desktop / 320x50 mobile)**: Positioned above the fold, beneath the global navigation bar with guaranteed height to eliminate CLS.
-- **Sidebar Sticky Rectangle (300x250)**: Visible on desktop viewports alongside the tool workspace.
-- **Native / Footer Unit (728x90 or Native Banner)**: Placed beneath the tool result card, separated cleanly from interactive buttons.
-
-### Strict Monetization Safeguards:
-- No pop-unders, auto-redirects, or invasive alert dialogs.
-- No ads placed within 24px of functional buttons (e.g. "Copy", "Download", "Clear").
-- Strict ad-blocker friendliness: If scripts are blocked, layout preserves aesthetics with zero broken image badges or JavaScript errors.
-
----
-
-## 8. Success Metrics & Key Performance Indicators (KPIs)
-
-1. **Lighthouse / Core Web Vitals**:
-   - Performance: ≥ 95 on Desktop, ≥ 90 on Mobile.
-   - Largest Contentful Paint (LCP): < 1.5 seconds.
-   - First Input Delay (FID) / Interaction to Next Paint (INP): < 100 milliseconds.
-   - Cumulative Layout Shift (CLS): < 0.05.
-2. **SEO & Engagement**:
-   - Average User Dwell Time: > 90 seconds per tool visit.
-   - Bounce Rate: < 45%.
-   - Organic Search Traffic Growth: Target indexing across all 8 MVP tool keywords within 60 days.
-3. **Accessibility**:
-   - 100% WCAG 2.1 AA compliance score via automated axe-core audits.
+### High-Yield US/UK Niche Growth Drivers (4 Tools)
+9. **Etsy Seller Fee & Profit Margin Calculator** (`/tools/productivity/etsy-fee-calculator`):
+   - Computes Etsy listing fee ($0.20), transaction fee (6.5%), payment processing (3% + $0.25), offsite ads (12%/15%), shipping costs, and net margin percentage.
+10. **US 1099 Self-Employed Tax Calculator** (`/tools/productivity/us-1099-tax-calculator`):
+    - Computes Self-Employment Tax (15.3% Social Security & Medicare with deduction), Federal income brackets, state tax estimates (including 0% state tax for TX, FL, WA, NV), QBI deduction, and quarterly estimated payments.
+11. **HEIC to JPG / PNG Converter** (`/tools/media/heic-to-jpg-converter`):
+    - Converts Apple iPhone HEIC images to standard JPEG or PNG entirely in the browser with quality controls and instant download.
+12. **TikTok & Reels Viral Hook Generator** (`/tools/text/tiktok-hook-generator`):
+    - Generates 10+ high-retention 3-second short-form video hooks across 6 creator niches (Fitness, Finance, Tech, Beauty, Business, Storytelling) with audio & visual cue scripts.

@@ -25,7 +25,7 @@ export function AdSlot({ slot, className }: AdSlotProps) {
       )}
       style={{
         minHeight: `${slot.minHeight + 24}px`, // 24px for label and padding
-        minWidth: `${Math.min(slot.minWidth, 300)}px`,
+        minWidth: `${Math.min(slot.minWidth ?? 300, 300)}px`,
       }}
     >
       <div className="w-full flex items-center justify-between pb-1 px-1 text-[10px] uppercase font-bold tracking-widest text-body-muted/60">
@@ -38,7 +38,7 @@ export function AdSlot({ slot, className }: AdSlotProps) {
         className="flex items-center justify-center w-full overflow-hidden"
         style={{
           height: `${slot.minHeight}px`,
-          maxWidth: `${slot.minWidth}px`,
+          maxWidth: `${slot.minWidth ?? 728}px`,
         }}
       >
         {ADS_CONFIG.debugWireframe ? (

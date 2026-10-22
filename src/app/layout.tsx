@@ -5,6 +5,7 @@ import { SITE_CONFIG } from '@/config/site';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/common/CookieBanner';
+import { SocialBarAd } from '@/components/ads/SocialBarAd';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -14,7 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_CONFIG.name} - Free Online Developer & Productivity Tools`,
+    default: `${SITE_CONFIG.name} - Free Online Utilities & High-Yield Calculators`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
@@ -46,6 +47,7 @@ export default function RootLayout({
         <div className="flex-1 flex flex-col">{children}</div>
         <Footer />
         <CookieBanner />
+        <SocialBarAd />
       </body>
     </html>
   );
