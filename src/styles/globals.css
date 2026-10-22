@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --text: #0F172A;
+  --text-muted: #64748B;
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-subtle: #F1F5F9;
+  --border: #E2E8F0;
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+}
+
+.dark {
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --text: #F8FAFC;
+  --text-muted: #94A3B8;
+  --background: #0B0F17;
+  --surface: #131B2E;
+  --surface-subtle: #1E293B;
+  --border: #1E293B;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+}
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbar for code/pre blocks */
+pre, code, textarea {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+pre::-webkit-scrollbar, textarea::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+pre::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 3px;
+}
